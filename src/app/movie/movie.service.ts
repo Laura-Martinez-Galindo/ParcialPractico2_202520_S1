@@ -11,12 +11,12 @@ export class MovieService {
   private apiUrl = environment.baseUrl + 'movies';
   constructor(private http: HttpClient) { }
 
-  getRecipes(): Observable<Movie[]> {
+  getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.apiUrl);
   }
 
-  getRecipe(id: String): Observable<Movie> {
-    const url = `${environment.baseUrl}${id}`;
+  getMovie(id: String): Observable<Movie> {
+    const url = `${environment.baseUrl}movies/${id}`;
     return this.http.get<Movie>(url);
   }
 }

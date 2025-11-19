@@ -1,17 +1,31 @@
-<div>
+<div class="container my-4">
   <h2>{{ movie?.title }}</h2>
-  <div>
-    <img class="poster-detail-img" [src]="movie?.posterImageUrl" alt="{{ movie?.title }} poster" />
-  </div>
-  <div>
-    <p><strong>Director:</strong> {{ movie?.director }}</p>
-    <p><strong>Año de lanzamiento:</strong> {{ movie?.releaseYear }}</p>
-    <p><strong>Calificación:</strong> {{ movie?.rating }}</p>
-    <p><strong>Género:</strong> {{ movie?.genre }}</p>
-    <p><strong>Sinopsis:</strong> {{ movie?.description }}</p>
-  </div>
-  <div>
-    <h3>Reparto:</h3>
-    <app-actor-list [actors]="movie?.cast"></app-actor-list>
-  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <p><strong>Sinopsis:</strong></p><br>
+        <p>{{movie?.description}}</p>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="row mb-3">
+              <div class="col-6"><strong>Director:</strong> {{ movie?.director }}</div>
+              <div class="col-6"><strong>Calificacion:</strong> {{ movie?.rating }}</div>
+              <div class="col-6"><strong>Duracion:</strong> {{ movie?.duration }} min</div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-6"><strong>Año de lanzamiento:</strong> {{ movie?.releaseYear }}</div>
+              <div class="col-6"><strong>Genero:</strong> {{ movie?.genre }}</div>
+            </div>
+        </div>
+      </div>
+        <app-actor-list [actors]="movie?.cast"></app-actor-list>
+      </div>
+    <div class="col-md-4">
+      <img class="poster-img" [src]="movie?.posterImageUrl" alt="{{ movie?.title }} poster" />
+    </div>
 </div>
+    <a routerLink="/movies/list" class="btn btn-secondary mt-3">Regresar</a>
+</div>
+

@@ -16,7 +16,7 @@ export class MovieListComponent implements OnInit {
 
   constructor(private movieService: MovieService) {}
   getMoviesList(): Movie[]{
-    this.movieService.getRecipes().subscribe((data) => {
+    this.movieService.getMovies().subscribe((data) => {
       this.movies = data;
     });
     return this.movies;

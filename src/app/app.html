@@ -1,1 +1,20 @@
-<app-movie-list></app-movie-list>
+<!-- Navigation bar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #000;">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white ms-auto" routerLink="/movies/list">Peliculas</a>
+  </div>
+</nav>
+
+<!-- Main content -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-3" style="background-color: #000; color: #fff;">
+  Parcial Practico 2 - Laura Martinez
+</footer>

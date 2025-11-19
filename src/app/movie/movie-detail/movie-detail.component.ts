@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -6,7 +8,26 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './movie-detail.component.html',
   styleUrl: './movie-detail.component.css',
 })
+
 export class MovieDetailComponent implements OnInit {
+  movieId!: string; //! Confia en que se inicializa con un valor 
   @Input() movie: any;
-  ngOnInit(): void {}
+  constructor(private route:ActivatedRoute, private movieService:MovieService) {}
+  
+  //esto es obtener pelicula con el id si selecciono alguna vaina
+  getMovie(){
+    this.movieService.getMovie(this.movieId).subscribe(
+      data => {this.movie = data;
+      })
+  }
+  ngOnInit() { //esto por si se busca una ruta y no se sleeciono la movie
+    if(this.movie === undefined){
+      this.movieId = this.route.snapshot.paramMap.get('id')!
+      if (this.movieId) {
+        this.getMovie();
+      }
+    }
+    
+  }
 }
+

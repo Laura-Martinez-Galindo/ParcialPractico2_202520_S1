@@ -1,31 +1,28 @@
 <h1>Lista de Películas</h1>
-<div>
-  <div>
-    @if(selected){
+<div class="container-fluid my-4 bg-light-sky-blue">
+  @if(selected){
     <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
     }
-    <table>
-      <tr>
-        <th scope="col">Título</th>
-        <th scope="col">Poster</th>
-        <th scope="col">Director</th>
-        <th scope="col">Año</th>
-        <th scope="col">Calificación</th>
-      </tr>
-      @for(movie of movies; track movie.id) {
-
-      <tr (click)="onSelect(movie)">
-        <td>
-          <b>{{ movie.title }}</b>
-        </td>
-        <td>
+  <div class="row">
+    @for (movie of movies; track movie.id) {
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card h-100 w-100 bg-white">
           <img class="poster-img" [src]="movie.posterImageUrl" alt="{{ movie.title }} poster" />
-        </td>
-        <td>{{ movie.director }}</td>
-        <td>{{ movie.releaseYear }}</td>
-        <td>{{ movie.rating }}</td>
-      </tr>
-      }
-    </table>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ movie.title }}</h5>
+
+            <div class="card-text">
+              <div>{{movie.description}}</div>
+              <div><strong>Director:</strong> {{ movie.director }}</div>
+              <div><strong>Año:</strong> {{ movie.releaseYear }}</div>
+            </div>
+          </div>
+          <a [routerLink]="['/movies', movie.id]" class="btn btn-primary mt-auto">
+              Ver detalle
+          </a>
+        </div>
+      </div>
+    }
   </div>
 </div>
+

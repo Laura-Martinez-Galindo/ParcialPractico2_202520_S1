@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptorService } from './interceptors/http-error-interceptor.service';
 import { MovieModule } from './movie/movie.module';
+import { MovieRoutingModule } from './movie/movie-routing-module';
 
 @NgModule({
   declarations: [App],
@@ -20,6 +21,7 @@ import { MovieModule } from './movie/movie.module';
       preventDuplicates: true,
     }),
     MovieModule,
+    MovieRoutingModule
   ],
   providers: [
     {
