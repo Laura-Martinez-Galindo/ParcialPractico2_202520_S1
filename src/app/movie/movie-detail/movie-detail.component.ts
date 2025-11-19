@@ -34,9 +34,9 @@ export class MovieDetailComponent implements OnInit {
     
   }
   getDuracion(){
-    let horas = this.movie.duration/60;
+    let horas = (this.movie.duration/60) + "";
     let minutos = this.movie.duration%60;
-    this.duracion = horas + 'H y ' + minutos + ' m';
+    this.duracion = Number.parseInt(horas) + 'H y ' + minutos + ' m';
   }
 }
 
