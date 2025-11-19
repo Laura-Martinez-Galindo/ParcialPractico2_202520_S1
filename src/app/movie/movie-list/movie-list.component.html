@@ -15,6 +15,7 @@
               <div>{{movie.description}}</div>
               <div><strong>Director:</strong> {{ movie.director }}</div>
               <div><strong>Año:</strong> {{ movie.releaseYear }}</div>
+              <div><strong>Promedio:</strong>{{promedio}}</div>
             </div>
           </div>
           <a [routerLink]="['/movies', movie.id]" class="btn btn-primary mt-auto">
