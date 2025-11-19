@@ -1,4 +1,4 @@
 # Parcial Práctico 2
 
-- Nombre:
-- código:
+- Nombre: Laura Fernanda Martinez Galindo
+- código: 202125643
